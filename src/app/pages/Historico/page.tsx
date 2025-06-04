@@ -1,10 +1,8 @@
-// HistoricoCliente.tsx
 'use client';
 import { useEffect, useState } from "react";
 import Hotbar from "@/app/component/Hotbar/Hotbat";
 import CardHistoricoItem from "@/app/component/Card_Historico/Card_Historico";
 import withAuth from "@/app/utils/withAuth";
-
 
 interface PedidoAjuda {
   id_pedido: number;
@@ -16,6 +14,18 @@ interface PedidoAjuda {
   tipo_pedido: string;
   status: string;
   endereco: string;
+}
+
+interface PedidoAjudaBruto {
+  id_pedido: number;
+  descricao: string;
+  "data criacao": string;
+  "data aceitacao": string;
+  urgente: string;
+  "nome usuario": string;
+  "tipo pedido": number;
+  status?: string;
+  "endereco usuario"?: string[];
 }
 
 const tipoPedidoMap: { [key: number]: string } = {
@@ -43,9 +53,9 @@ const HistoricoCliente = () => {
     if (emailSalvo) {
       fetch(`https://onetdsq-python.onrender.com/historico/empresa/${emailSalvo}`)
         .then((res) => res.json())
-        .then((data) => {
+        .then((data: PedidoAjudaBruto[]) => {
           if (Array.isArray(data)) {
-            const pedidosConvertidos: PedidoAjuda[] = data.map((item: any) => ({
+            const pedidosConvertidos: PedidoAjuda[] = data.map((item) => ({
               id_pedido: item.id_pedido,
               descricao: item.descricao,
               data_criacao: item["data criacao"],
