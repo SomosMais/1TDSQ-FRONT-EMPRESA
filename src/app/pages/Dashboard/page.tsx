@@ -7,14 +7,23 @@ import Hotbar from "@/app/component/Hotbar/Hotbat";
 import Cards from "@/app/component/Cards/Cards";
 import withAuth from "@/app/utils/withAuth";
 
+interface Pedido {
+  id_pedido: number;
+  descricao: string;
+  urgencia: string;
+  "nome do usuario": string;
+  "data criacao": string;
+  "id tipo pedido": number;
+  "endereco do usuario": string[];
+}
+
 const Dashboard = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [qtdUsuarios, setQtdUsuarios] = useState(0);
   const [qtdOngs, setQtdOngs] = useState(0);
-  const [pedidos, setPedidos] = useState<any[]>([]);
+  const [pedidos, setPedidos] = useState<Pedido[]>([]);
   const [filtroUrgencia, setFiltroUrgencia] = useState("");
-  const [autenticado, setAutenticado] = useState(false); 
-
+  const [autenticado, setAutenticado] = useState(false);
 
   const tipoNomePorId: { [key: number]: string } = {
     1: "Resgate de Vítimas",
@@ -33,14 +42,13 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-      const email = localStorage.getItem("email_empresa");
-      if (!email) {
-        router.push("/pages/LoginEmpresa"); // redireciona se não estiver logado
-      } else {
-        setAutenticado(true); // só permite renderização se autenticado
-      }
-    }, [router]);
-
+    const email = localStorage.getItem("email_empresa");
+    if (!email) {
+      router.push("/pages/LoginEmpresa");
+    } else {
+      setAutenticado(true);
+    }
+  }, [router]);
 
   useEffect(() => {
     if (!autenticado) return;
@@ -66,13 +74,15 @@ const Dashboard = () => {
         if (!res.ok) throw new Error("Erro na resposta da API");
         return res.json();
       })
-      .then((data) => {
+      .then((data: Pedido[]) => {
         console.log("Pedidos recebidos:", data);
         setPedidos(data);
       })
       .catch((err) => console.error("Erro ao aplicar filtro:", err));
   };
+
   if (!autenticado) return null;
+
   return (
     <>
       <div className="w-full h-[740px] pt-[30px]">
@@ -113,18 +123,20 @@ const Dashboard = () => {
           <h1 className="text-2xl font-semibold text-left w-full ml-10">Pedidos em Aberto</h1>
           <div className="flex flex-col overflow-y-auto px-4 scrollbar-none w-full gap-6 h-[380px]">
             {pedidos.length > 0 ? (
-              pedidos.map((pedido, index) => (
-               <Cards
-                key={index}
-                id={pedido.id_pedido}
-                nome={pedido["nome do usuario"]}
-                data_abertura={pedido["data criacao"]}
-                tipo_ajuda={tipoNomePorId[pedido["id tipo pedido"]] || `Tipo ${pedido["id tipo pedido"]}`}
-                descricao={pedido.descricao}
-                endereco={pedido["endereco do usuario"].join(", ")}
-                urgente={pedido.urgencia}
-                onAceitar={() => setPedidos((prev) => prev.filter((p) => p.id_pedido !== pedido.id_pedido))}
-              />
+              pedidos.map((pedido) => (
+                <Cards
+                  key={pedido.id_pedido}
+                  id={pedido.id_pedido}
+                  nome={pedido["nome do usuario"]}
+                  data_abertura={pedido["data criacao"]}
+                  tipo_ajuda={tipoNomePorId[pedido["id tipo pedido"]] || `Tipo ${pedido["id tipo pedido"]}`}
+                  descricao={pedido.descricao}
+                  endereco={pedido["endereco do usuario"].join(", ")}
+                  urgente={pedido.urgencia}
+                  onAceitar={() =>
+                    setPedidos((prev) => prev.filter((p) => p.id_pedido !== pedido.id_pedido))
+                  }
+                />
               ))
             ) : (
               <p className="text-gray-500">Nenhum pedido encontrado. Aplique um filtro.</p>

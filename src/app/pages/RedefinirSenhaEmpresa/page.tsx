@@ -46,8 +46,12 @@ const RedefinirSenhaEmpresa = () => {
             setTimeout(() => {
                 router.push("/pages/LoginEmpresa");
             }, 2000);
-        } catch (err: any) {
-            setErro(err.message || "Erro ao redefinir a senha. Tente novamente.");
+        } catch (err) {
+            if (err instanceof Error) {
+                setErro(err.message || "Erro ao redefinir a senha. Tente novamente.");
+            } else {
+                setErro("Erro inesperado ao redefinir a senha.");
+            }
         }
     };
 
@@ -62,7 +66,7 @@ const RedefinirSenhaEmpresa = () => {
                 <h2 className="text-[#212529] text-2xl">Redefinir Senha</h2>
                 <h3 className="text-[#212529] mb-10 text-1xl">Empresa</h3>
 
-                <Input placeholder="Digite da empresa" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input placeholder="Digite o email da empresa" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <Input placeholder="Digite a nova senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
                 <Input placeholder="Confirme a nova senha" type="password" value={confirmarSenha} onChange={(e) => setConfirmarSenha(e.target.value)} />
 
