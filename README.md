@@ -10,7 +10,7 @@ Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e e
 * [Java](https://java.org/) - Linguagem resposável pela construção de API Rest
 * [Python](https://python.org/) - Linguagem resposável pela construção de API Rest
 
-  ## 🚀 Como executar web app localmente
+  ## 🚀 Como executar o web app localmente
 
 ### ✅ Pré-requisitos
 - [Node.js](https://nodejs.org/) instalado (versão 18 ou superior)
