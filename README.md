@@ -148,7 +148,7 @@ A URL da API pode ser alterada nos arquivos de `fetch()` localizados nos compone
 ## 🛠️ Como Iniciar o Projeto
 
 ###  VERCEL
-https://1-tdsq-front-comum-t5ae.vercel.app/
+https://1-tdsq-front-empresa-ckak.vercel.app/
 
 > ⚠️ Para o web app hospedado no vercel, deixe a API de JAVA executando, lembrando que ele é local, portanto deve estar rodando pelo IntelliJ
 > ⚠️ Por estar hospedada no RENDER a API tem um delay para carregar dados de no máximo 50 segundos.
