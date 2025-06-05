@@ -1,14 +1,16 @@
-# 🚀 1TDSQ-FRONT-COMUM
+# 🚀 1TDSQ-FRONT-EMPRESA
 
-Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e estilizado utilizando [Tailwind CSS](https://tailwindcss.com/). Ele serve como base comum para aplicações da equipe 1TDSQ da SomosMais. Esse é o WEB APP para usuários.
+Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e estilizado utilizando [Tailwind CSS](https://tailwindcss.com/). Ele serve como base comum para aplicações da equipe 1TDSQ da SomosMais. Esse é o WEB APP para empresas.
  
 ## 🧰 Tecnologias Utilizadas
 
 * [Next.js](https://nextjs.org/) – Framework React para produção.
 * [Tailwind CSS](https://tailwindcss.com/) – Framework de utilitários CSS.
 * [TypeScript](https://www.typescriptlang.org/) – Superset do JavaScript que adiciona tipagem estática.
+* [Java](https://java.org/) - Linguagem resposável pela construção de API Rest
+* [Python](https://python.org/) - Linguagem resposável pela construção de API Rest
 
-  ## 🚀 Como executar o totem localmente
+  ## 🚀 Como executar web app localmente
 
 ### ✅ Pré-requisitos
 - [Node.js](https://nodejs.org/) instalado (versão 18 ou superior)
@@ -156,8 +158,8 @@ https://1-tdsq-front-comum-t5ae.vercel.app/
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/SomosMais/1TDSQ-FRONT-COMUM.git
-   cd 1TDSQ-FRONT-COMUM
+   git clone https://github.com/SomosMais/1TDSQ-FRONT-EMPRESA
+   cd 1TDSQ-FRONT-EMPRESA
    ```
 
 
@@ -232,6 +234,6 @@ https://youtu.be/ALFRn_6Dl3w
 https://github.com/SomosMais/1TDSQ-FRONT-COMUM
 ---
 ## 🪖INTEGRANTES
-*CLEYTON ENRIKE DE OLIVEIRA – RM 560485
-*MATHEUS HENRIQUE NASCIMENTO DE FREITAS – RM 560442
-*PEDRO HENRIQUE DE SOUZA SENA – RM 561178
+* CLEYTON ENRIKE DE OLIVEIRA – RM 560485
+* MATHEUS HENRIQUE NASCIMENTO DE FREITAS – RM 560442
+* PEDRO HENRIQUE DE SOUZA SENA – RM 561178
