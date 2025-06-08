@@ -237,7 +237,7 @@ https://youtu.be/ALFRn_6Dl3w
 
 ---
 ---
-# LINK DO PROJETO EMPRESA
+# LINK DO PROJETO COMUM
 https://github.com/SomosMais/1TDSQ-FRONT-COMUM
 ---
 ## 🪖INTEGRANTES
